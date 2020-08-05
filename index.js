@@ -3,6 +3,8 @@ const result = document.getElementById('result');
 const clipboard = new ClipboardJS('#btnCopy');
 
 const changeType = (_type) => {
+  if (_type == null) return '';
+
   const type = _type.toLowerCase();
   if (type == 'char' || type === 'varchar')  return 'string';
   if (type === 'tinyint' ) return 'byte';
