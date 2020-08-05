@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <title>EntityCreatorForDBDefined</title>
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
+  <link rel="stylesheet" type="text/css" href="./milligram.css" />
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.4/clipboard.min.js"></script>
+  <style>
+    #updateDate {
+      -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    border: 0.1rem solid #d1d1d1;
+    border-radius: .4rem;
+    box-shadow: none;
+    box-sizing: inherit;
+    height: 3.8rem;
+    padding: .6rem 1.0rem;
+    width: 100%;
+    }  
+    .hide {
+      display: none;
+    }
+    textarea#result {
+      min-height: 35.5rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <h4>EntityCreatorForDBDefined</h4>
+      </div>
+    </div>
+    <div class="column columns-100 card">
+      <div class="row">
+        <div class="column columns-50 card">
+          <label for="type">タイプ</label>
+          <select id="type">
+            <option value="クラス">クラス</option>
+            <option value="メソッド">メソッド</option>
+          </select>
+        </div>
+        <div class="column columns-50 card">
+          <label for="name">物理名</label>
+          <input id="name" type="text" placeholder="メソッド・クラス名" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="column columns-50 card">
+          <label for="summary">summary</label>
+          <input id="summary" type="text" placeholder="サマリー" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="column columns-50 card">
+          <label for="remarks">remarks</label>
+          <textarea id="remarks" class="text-area" spellcheck="false" type="text" placeholder="備考"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column columns-25 card">
+          <label for="serial">項番</label>
+          <input id="serial" type="text" placeholder="項番" />
+        </div>
+        <div class="column columns-25 card">
+          <label for="updateDate">更新日付</label>
+          <input id="updateDate" type="date" placeholder="更新日付" />
+        </div>
+        <div class="column columns-25 card">
+          <label for="corp">会社名</label>
+          <input id="corp" type="text" placeholder="会社名" />
+        </div>
+        <div class="column columns-25 card">
+          <label for="developer"">担当者</label>
+          <input id="developer" type="text" placeholder="担当者" />
+        </div>
+        <div class="column columns-25 card">
+          <label for="content"">更新内容</label>
+          <input id="content" type="text" placeholder="更新内容" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="column columns-100 card">
+          <button id="btnCopy" data-clipboard-target="#result">コピー</button>
+        </div>
+      </div>
+      <div class="row">
+        <div class="column columns-50 card">
+          <textarea row="10" placeholder="result" readonly class="text-area" spellcheck="false" id="result"></textarea>
+        </div>
+      </div>
+      <div class="row">
+        <label id="information" class="hide">クリップボードにコピーしました。</label>
+      </div>
+    </div>
+    <script src="./comment.js"></script>
+</body>
+
+</html>
