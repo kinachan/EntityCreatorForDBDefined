@@ -2,6 +2,14 @@ const db =  document.getElementById('DB');
 const result = document.getElementById('result');
 const clipboard = new ClipboardJS('#btnCopy');
 
+const changeType = (_type) => {
+  const type = _type.toLowerCase();
+  if (type == 'char' || type === 'varchar')  return 'string';
+  if (type === 'tinyint' ) return 'byte';
+  if (type === 'smallint') return 'short';
+  if (type === 'datetime') return 'DateTime';
+  return type;
+}
 
 db.addEventListener('change', (ev) => {
   result.innerText = '';
@@ -19,7 +27,7 @@ db.addEventListener('change', (ev) => {
     /// <summary>
     /// ${logicalName}
     /// </summary>
-    public ${type} ${physicalName} { get; set; }`
+    public ${changeType(type)} ${physicalName} { get; set; }`
   }).join('\n');
   result.value = generatedText;
 });
