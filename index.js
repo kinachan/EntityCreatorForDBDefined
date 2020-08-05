@@ -13,12 +13,13 @@ db.addEventListener('change', (ev) => {
 
     const physicalName =  items[1];
     const logicalName = items[0];
+    const type = items[2];
 
     return `
     /// <summary>
     /// ${logicalName}
     /// </summary>
-    public string ${physicalName} { get; set; }`
+    public ${type} ${physicalName} { get; set; }`
   }).join('\n');
   result.value = generatedText;
 });
