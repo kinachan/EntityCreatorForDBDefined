@@ -18,8 +18,7 @@ db.addEventListener('change', (ev) => {
     /// <summary>
     /// ${logicalName}
     /// </summary>
-    public string ${physicalName} { get; set; }
-    `
+    public string ${physicalName} { get; set; }`
   }).join('\n');
   result.value = generatedText;
 });
