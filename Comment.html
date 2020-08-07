@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8" />
-  <title>EntityCreatorForDBDefined</title>
+  <title>コメントヘルパー</title>
   <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/3.18.1/build/cssreset/cssreset-min.css">
   <link rel="stylesheet" type="text/css" href="./milligram.css" />
   <script src="http://cdnjs.cloudflare.com/ajax/libs/moment.js/2.8.2/moment.min.js"></script>
@@ -34,7 +34,7 @@
   <div class="container">
     <div class="row">
       <div class="column">
-        <h4>EntityCreatorForDBDefined</h4>
+        <h4>コメントヘルパー</h4>
       </div>
     </div>
     <div class="column columns-100 card">
@@ -91,12 +91,14 @@
         </div>
       </div>
       <div class="row">
-        <div class="column columns-50 card">
-          <textarea row="10" placeholder="result" readonly class="text-area" spellcheck="false" id="result"></textarea>
+        <div class="column columns-25 card">
+          <label id="information" class="hide">クリップボードにコピーしました。</label>
         </div>
       </div>
       <div class="row">
-        <label id="information" class="hide">クリップボードにコピーしました。</label>
+        <div class="column columns-50 card">
+          <textarea row="10" placeholder="result" readonly class="text-area" spellcheck="false" id="result"></textarea>
+        </div>
       </div>
     </div>
     <script src="./comment.js"></script>
