@@ -25,7 +25,7 @@ const createText = () => {
   const callback = elem => {
     const id = elem.id;
     if (elem.type !== 'date') {
-      obj[id] = elem.value;
+      obj[id] = elem.value.trim().replace('\n', '\n/// ');
       return;
     }
     obj[id] = elem.value.replace(/-/g, '/');
