@@ -18,12 +18,30 @@ inputs.forEach(addEventCallback);
 selects.forEach(addEventCallback);
 textareas.forEach(addEventCallback);
 
+const createParam = (value) => {
+  // physical logical
+  const rows = value.trim().split(/\n/);
+  if (rows.length === 0 || rows[0] === '') return '';
+  const texts = rows.map((current) => {
+    const items = current.split(/\t/);
+    const logicalName = items[0] || '';
+    const physicalName =  items[1] || '';
 
+    const param = 
+`/// <param name="${physicalName}">${logicalName}</param>`;
+    return param;
+  }, '\n');
+  return '\n' + texts.join('\n');
+}
 
 const createText = () => {
   const obj = {};
   const callback = elem => {
     const id = elem.id;
+    if (id === 'params') {
+      obj[id] = createParam(elem.value);
+      return;
+    }
     if (elem.type !== 'date') {
       obj[id] = elem.value.trim().replace('\n', '\n/// ');
       return;
@@ -43,7 +61,7 @@ const createText = () => {
 /// </summary>
 /// <remarks>
 /// ${obj['remarks']}
-/// </remarks>
+/// </remarks>${obj['params']}
 /// ******************************************************************************
 ///   更新履歴
 ///   項番    更新日付    会社名    担当者    更新内容
