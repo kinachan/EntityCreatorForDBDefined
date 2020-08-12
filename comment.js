@@ -23,7 +23,7 @@ const createParam = (value) => {
   const rows = value.trim().split(/\n/);
   if (rows.length === 0 || rows[0] === '') return '';
   const texts = rows.map((current) => {
-    const items = current.split(/\t/);
+    const items = current.split(/\s/);
     const logicalName = items[0] || '';
     const physicalName =  items[1] || '';
 
