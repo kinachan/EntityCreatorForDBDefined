@@ -6,7 +6,7 @@ const changeType = (_type) => {
   if (_type == null) return '';
 
   const type = _type.toLowerCase();
-  if (type == 'char' || type === 'varchar')  return 'string';
+  if (type.includes('char')) return 'string';
   if (type === 'tinyint' ) return 'byte';
   if (type === 'smallint') return 'short';
   if (type === 'datetime') return 'DateTime';
@@ -15,7 +15,7 @@ const changeType = (_type) => {
 
 db.addEventListener('change', (ev) => {
   result.innerText = '';
-  const allLineText = ev.target.value;
+  const allLineText = ev.target.value.trim();
   const texts = allLineText.split(/\n/);
   const generatedText = texts.map(text => {
     const items = text.split(/\t/);
