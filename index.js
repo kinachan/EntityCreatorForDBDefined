@@ -2,15 +2,15 @@ const db =  document.getElementById('DB');
 const result = document.getElementById('result');
 const clipboard = new ClipboardJS('#btnCopy');
 
-const changeType = (_type) => {
+const changeType = (_type, notNull) => {
   if (_type == null) return '';
 
   const type = _type.toLowerCase();
   if (type.includes('char')) return 'string';
-  if (type === 'tinyint' ) return 'byte';
-  if (type === 'smallint') return 'short';
-  if (type === 'datetime') return 'DateTime';
-  return type;
+  if (type === 'tinyint' ) return 'byte' + notNull;
+  if (type === 'smallint') return 'short' + notNull;
+  if (type === 'datetime') return 'DateTime' + notNull;
+  return type + notNull;
 }
 
 db.addEventListener('change', (ev) => {
@@ -24,12 +24,13 @@ db.addEventListener('change', (ev) => {
     const physicalName =  items[1];
     const logicalName = items[0];
     const type = items[2];
-
+    const notNullSection = typeof(items[12]) !== 'undefined' ? items[12] : '○';
+    const notNullMark = notNullSection == '○' ? '' : '?';
     return `
     /// <summary>
     /// ${logicalName}
     /// </summary>
-    public ${changeType(type)} ${physicalName} { get; set; }`
+    public ${changeType(type, notNullMark)} ${physicalName} { get; set; }`
   }).join('\n');
   result.value = generatedText;
 });
