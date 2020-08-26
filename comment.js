@@ -43,7 +43,7 @@ const createText = () => {
       return;
     }
     if (elem.type !== 'date') {
-      obj[id] = elem.value.trim().replace('\n', '\n/// ');
+      obj[id] = elem.value.trim().replace(/\n/g, '\n/// ');
       return;
     }
     obj[id] = elem.value.replace(/-/g, '/');
