@@ -6,6 +6,8 @@ const changeType = (_type, notNull) => {
   if (_type == null) return '';
 
   const type = _type.toLowerCase();
+  if (type === 'uuid') return 'Guid';
+  if (type.includes('varchar')) return 'string';
   if (type.includes('char')) return 'string';
   if (type === 'tinyint' ) return 'byte' + notNull;
   if (type === 'smallint') return 'short' + notNull;
