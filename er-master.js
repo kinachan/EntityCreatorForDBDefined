@@ -40,7 +40,7 @@ const changeType = (_type, notNull) => {
   if (type === 'boolean') return 'bool'+ notNull;
   if (type === 'tinyint' ) return 'byte' + notNull;
   if (type === 'smallint') return 'short' + notNull;
-  if (type === 'datetime' || type === 'timestamp') return 'DateTime' + notNull;
+  if (type === 'datetime' || type === 'date' || type === 'timestamp') return 'DateTime' + notNull;
   return type + notNull;
 }
 
